@@ -1466,17 +1466,26 @@ button:focus {
   color: white;
   position: absolute;
   bottom: 0%;
-  left: 50%;
+  width: -webkit-fill-available;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 5px;
 }
 
 .more-alt {
   
-    background: none;
-    border: none;
-    color: white;
-    position: absolute;
-    left: 45%;
-    bottom: 20%;
+  background: none;
+  border: none;
+  color: white;
+  position: absolute;
+  bottom: 20%;
+  width: -webkit-fill-available;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 
 }
 
