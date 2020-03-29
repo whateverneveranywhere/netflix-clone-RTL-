@@ -1,14 +1,12 @@
 {
-    "name": "Shopping List",
-    "short_name": "ShoppingList",
-    "theme_color": "#00aba9",
-    "background_color": "#00aba9",
+    "name": "DLFILIX",
+    "short_name": "DLFILIX",
+    "theme_color": "#000000",
+    "background_color": "#000000",
     "display": "standalone",
-    "orientation": "landscape",
     "scope": "/",
     "start_url": "/",
-    "icons": null
-,
+
     "icons": [
         {
           "src": "./assets/img/icons/icon-72.png",
