@@ -30,6 +30,9 @@
 <meta name="apple-mobile-web-app-title" content="Weather PWA">
 <link rel="apple-touch-icon" href="./assets/img/icons/icon-512.png">
  <link rel="manifest" href="/manifest.json">
+ <meta name="description" content="A sample weather app">
+ <meta name="theme-color" content="#2F3BA2" />
+
 
     <title>دی ال فلیکس</title>
   </head>
@@ -6059,7 +6062,7 @@
 // CODELAB: Register service worker.
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker.register('./sw.js')
         .then((reg) => {
           console.log('Service worker registered.', reg);
         });
