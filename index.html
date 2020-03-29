@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="theme-color" content="#141414">
 
     <!-- Bootstrap CSS -->
     <link
@@ -23,29 +24,9 @@
       rel="stylesheet"
       href="./assets/libs/OwlCarousel/assets/owl.theme.default.min.css"
     />
-
- <!-- Disable tap highlight on IE -->
- <meta name="msapplication-tap-highlight" content="no">
-
- <!-- Progressive Web App -->
- <meta name="theme-color" content="#141414">
+    <link rel="stylesheet" href="./assets/css/style.css" />
  <link rel="manifest" href="manifest.json">
 
- <!-- Add to homescreen for Chrome on Android -->
- <meta name="mobile-web-app-capable" content="yes">
- <link rel="icon" sizes="192x192" href="./assets/img/icons/icon-192.png">
- <link rel="icon" sizes="512x512" href="./assets/img/icons/icon-512.png">
-
- <!-- Add to homescreen for Safari on iOS -->
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="black">
- <meta name="apple-mobile-web-app-title" content="DLFILIX">
- <link rel="apple-touch-icon-precomposed" href="./assets/img/icons/icon-180.png">
-
-
-
-
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>دی ال فلیکس</title>
   </head>
   <header>
@@ -6069,9 +6050,39 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./js/zuix.min.js"></script>
-    <script src="./js/zuix-bundler.min.js"></script>
-    <script src="./index.js"></script>
+    <script>
+      let installPromptEvent;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  // Prevent Chrome <= 67 from automatically showing the prompt
+  event.preventDefault();
+  // Stash the event so it can be triggered later.
+  installPromptEvent = event;
+  // Update the install UI to notify the user app can be installed
+  document.querySelector('#install-button').disabled = false;
+});
+    </script>
+    <script>
+
+btnInstall.addEventListener('click', () => {
+  // Update the install UI to remove the install button
+  document.querySelector('#install-button').disabled = true;
+  // Show the modal add to home screen dialog
+  installPromptEvent.prompt();
+  // Wait for the user to respond to the prompt
+  installPromptEvent.userChoice.then((choice) => {
+    if (choice.outcome === 'accepted') {
+      console.log('User accepted the A2HS prompt');
+    } else {
+      console.log('User dismissed the A2HS prompt');
+    }
+    // Clear the saved prompt since it can't be used again
+    installPromptEvent = null;
+  });
+});
+
+    </script>
+<script src="index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
