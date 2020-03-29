@@ -25,7 +25,11 @@
       href="./assets/libs/OwlCarousel/assets/owl.theme.default.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
- <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="./assets/img/icons/icon-512.png">
+ <link rel="manifest" href="/manifest.json">
 
     <title>دی ال فلیکس</title>
   </head>
@@ -6052,22 +6056,16 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script>
 
-if ('serviceWorker' in navigator && 'PushManager' in window) {
-  console.log('Service Worker and Push is supported');
-
-  navigator.serviceWorker.register('sw.js')
-  .then(function(swReg) {
-    console.log('Service Worker is registered', swReg);
-
-    swRegistration = swReg;
-  })
-  .catch(function(error) {
-    console.error('Service Worker Error', error);
+// CODELAB: Register service worker.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
   });
-} else {
-  console.warn('Push messaging is not supported');
-  pushButton.textContent = 'Push Not Supported';
 }
+
 </script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
