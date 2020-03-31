@@ -83,6 +83,14 @@ function openNav() {
   });
 
 
+  function displayNotification() {
+    if (Notification.permission == 'granted') {
+      navigator.serviceWorker.getRegistration().then(function(reg) {
+        reg.showNotification('Hello world!');
+      });
+    }
+  }
+
 //   $("#navbar a").click(function(event) {
 //     event.preventDefault();
 

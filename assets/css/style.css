@@ -2126,4 +2126,15 @@ span.box-head-title {
     margin: 0px auto 0px auto !important;
   }
 }
+
+@media all and (display-mode: standalone) {
+  body {
+    font-family: IRANSans !important;
+    font-weight: 300;
+    direction: rtl;
+    background-color: #141414;
+    margin: 0;
+    line-height: normal !important;
+  }
+}
 /*# sourceMappingURL=style.css.map */
